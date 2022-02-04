@@ -1,28 +1,33 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<v-app>
+		<v-main>
+			<HelloWorld>
+				<v-checkbox v-for="icdRow in icdRows" :key="icdRow.id" v-model="icdRow.checked" @click="icdSelection"></v-checkbox>
+			</HelloWorld>
+		</v-main>
+	</v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+	name: 'App',
+	components: {
+		HelloWorld
+	},
+	data() {
+		return {
+			icdRows: [{id: '1', desc:'Check 1', checked: false}, {id: '2', desc:'Check 2', checked: true}]
+		}
+	},
+  computed: {
+    icdSelection: () => {
+      this.icdRows.array.forEach(e => {
+        console.log(e.desc + ' ' + e.checked)
+      });
+    }
+
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
