@@ -21,10 +21,10 @@ export default {
 			icdRows: [{id: '1', desc:'Check 1', checked: false}, {id: '2', desc:'Check 2', checked: true}]
 		}
 	},
-  computed: {
-    icdSelection: () => {
-      this.icdRows.array.forEach(e => {
-        console.log(e.desc + ' ' + e.checked)
+  methods: {
+    icdSelection: function() {
+      this.icdRows.forEach(element => {
+        console.log(element.id + '' + element.checked);
       });
     }
 
