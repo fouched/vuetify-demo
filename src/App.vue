@@ -24,7 +24,7 @@ export default {
   methods: {
     icdSelection: function() {
       this.icdRows.forEach(element => {
-        console.log(element.id + '' + element.checked);
+        console.log(element.id + ' ' + element.checked);
       });
     }
 
